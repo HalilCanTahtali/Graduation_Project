@@ -3,42 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler,IDropHandler
+public class Draggable : MonoBehaviour
 {
-    [SerializeField] private Canvas canvas;
-    private CanvasGroup canvasGroup;
-
-    private RectTransform rectTransform;
-    private void Awake()
+    [SerializeField]
+    private Transform ch1Place;
+    private Vector2 initialPosition;
+    private Vector2 mousePosition;
+    private float deltaX, deltaY;
+    public static bool locked;
+    
+    private void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
-        canvasGroup= GetComponent<CanvasGroup>();
+        initialPosition=transform.position;
     }
-
-
-
-    public void OnBeginDrag(PointerEventData eventData)
+    private void OnMouseDown()
     {
-        canvasGroup.alpha = 0.6f;
-        canvasGroup.blocksRaycasts = false;
+        if (!locked)
+        {
+            deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+            deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
+        }
     }
-
-    public void OnDrag(PointerEventData eventData)
+    private void OnMouseDrag()
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (!locked)
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector2(mousePosition.x - deltaX, mousePosition.y - deltaY);
+        }
     }
-
-    public void OnEndDrag(PointerEventData eventData)
+    private void OnMouseUp()
     {
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
+        if (!locked)
+        {
+            if (Mathf.Abs(transform.position.x - ch1Place.position.x)<=2f&& Mathf.Abs(transform.position.y - ch1Place.position.y)<=1f)
+            {
+                transform.position = new Vector2(ch1Place.position.x,ch1Place.position.y);
+            }
+            else
+            {
+                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+            }
+        }
     }
 }

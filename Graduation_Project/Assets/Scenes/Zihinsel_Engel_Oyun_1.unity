@@ -203,9 +203,10 @@ GameObject:
   - component: {fileID: 325722096}
   - component: {fileID: 325722097}
   - component: {fileID: 325722098}
+  - component: {fileID: 325722099}
   m_Layer: 5
   m_Name: target
-  m_TagString: Untagged
+  m_TagString: target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +219,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325722094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 400, y: 200, z: 150}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -304,7 +305,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -320,6 +321,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 1.2}
   m_EdgeRadius: 0
+--- !u!50 &325722099
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325722094}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &447045994
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +357,7 @@ GameObject:
   - component: {fileID: 447045999}
   m_Layer: 5
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: pan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722eb6766c9add3429ea0e89f589a527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 489796432}
+  ch1Place: {fileID: 325722095}
 --- !u!212 &447045997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +457,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -451,18 +473,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!225 &447045999
-CanvasGroup:
+--- !u!50 &447045999
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447045994}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &489796429
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +696,7 @@ GameObject:
   - component: {fileID: 1166250784}
   m_Layer: 5
   m_Name: Triangle
-  m_TagString: Untagged
+  m_TagString: egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -702,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722eb6766c9add3429ea0e89f589a527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 489796432}
+  ch1Place: {fileID: 325722095}
 --- !u!212 &1166250782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -765,7 +796,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21133333}
@@ -781,18 +812,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!225 &1166250784
-CanvasGroup:
+--- !u!50 &1166250784
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166250779}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1193673697
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +848,7 @@ GameObject:
   - component: {fileID: 1193673702}
   m_Layer: 5
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: oil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,7 +885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722eb6766c9add3429ea0e89f589a527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 489796432}
+  ch1Place: {fileID: 325722095}
 --- !u!212 &1193673700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -908,7 +948,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -924,15 +964,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!225 &1193673702
-CanvasGroup:
+--- !u!50 &1193673702
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193673697}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
